@@ -1,22 +1,31 @@
 const binarySearch = (list, item) => {
   let high = list.length - 1;
   let low = 0;
+  const isAscending = list[low] < list[high]; // Check if the list is sorted in ascending order
 
   while (low <= high) {
-    console.log("he");
-    let mid = Math.floor((high + low) / 2);
-    let guess = list[mid];
+    const mid = Math.floor((high + low) / 2);
+    const guess = list[mid];
 
     if (guess === item) {
       return mid;
     }
 
-    if (guess > item) {
-      high = mid - 1;
-    } else if (guess < item) {
-      low = mid + 1;
+    if (isAscending) {
+      if (guess > item) {
+        high = mid - 1;
+      } else {
+        low = mid + 1;
+      }
+    } else {
+      if (guess < item) {
+        high = mid - 1;
+      } else {
+        low = mid + 1;
+      }
     }
   }
+
   return null;
 };
 
