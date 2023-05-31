@@ -3,6 +3,14 @@ const mergeSortedArray = (arr1, arr2) => {
   let i = 0; // Pointer for arr1
   let j = 0; //poin ter for arr2
 
+  if (arr1.length === 0) {
+    return arr2;
+  }
+
+  if (arr2.length === 0) {
+    return arr1;
+  }
+
   while (i < arr1.length && j < arr2.length) {
     if (arr1[i] <= arr2[j]) {
       mergedArray.push(arr1[i]);
